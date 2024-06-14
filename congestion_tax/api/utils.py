@@ -69,3 +69,16 @@ def calculate_congestion_tax(vehicle, dates):
             interval_start = date
 
     return min(total_fee, 60)
+
+
+# def calculate_congestion_tax(vehicle_type, timestamps, tax_rules):
+#     # Implement your congestion tax calculation logic here
+#     # This function should return the calculated tax based on the vehicle type, timestamps, and tax rules
+#     total_tax = 0
+#     # Example implementation (replace with actual logic)
+#     for timestamp in timestamps:
+#         for rule in tax_rules:
+#             if rule.start_time <= timestamp.time() <= rule.end_time:
+#                 total_tax += rule.amount
+#                 break
+#     return min(total_tax, 60)  # Maximum tax per day is 60 SEK

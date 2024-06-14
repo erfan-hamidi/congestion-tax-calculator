@@ -3,8 +3,8 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from .models import Vehicle
-from .serializers import VehicleSerializer, TaxCalculationSerializer
+from .models import Vehicle, TaxRule
+from .serializers import VehicleSerializer, TaxRuleSerializer, TaxCalculationSerializer
 from .utils import calculate_congestion_tax
 
 class VehicleViewSet(viewsets.ModelViewSet):
@@ -23,3 +23,7 @@ class VehicleViewSet(viewsets.ModelViewSet):
 
             return Response({'tax': tax}, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class TaxRuleViewSet(viewsets.ModelViewSet):
+    queryset = TaxRule.objects.all()
+    serializer_class = TaxRuleSerializer

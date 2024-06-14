@@ -25,5 +25,15 @@ class Vehicle(models.Model):
 
     def __str__(self):
         return self.vehicle_type
+    
+class Car(Vehicle):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.vehicle_type = "Car"
+
+class Motorbike(Vehicle):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.vehicle_type = "Motorbike"
 
 
